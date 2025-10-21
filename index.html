@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <title>福爾摩斯夢遊仙境</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:600|Staatliches&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Noto+Serif+TC:wght@500&family=Staatliches&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <div id="wrapper">
+    <h1>福爾摩斯夢遊仙境</h1>
+
+    <h2>你是英國名偵探-夏洛克·福爾摩斯，誤觸一封可疑郵件後，掉入時空裂縫。只有完成時空事件，才能回到現代！</h2>
+
+    <p class="intro-text">小心！這可能是資安詐騙...</p>
+
+    <ul class="rules">
+      <li>共兩關，找出畫面中有問題的地方。</li>
+      <li>答對會獲得一張提示字卡。</li>
+      <li><strong>限時 10 分鐘！</strong></li>
+    </ul>
+
+    <div class="start-btn-container">
+      <button id="start" onclick="failedGame()">Start Game</button>
+    </div>
+  </div>
+
+  <!-- 自訂結束遊戲視窗 -->
+  <div id="overlay">
+    <div class="end-box">
+      <h2>❌ 遊戲結束</h2>
+      <p>你點擊了錯誤的網址！<br>請小心誤點擊釣魚網頁！</p>
+      <p>請注意網址中的「o」和「0」非常容易被混淆！</p>
+      <!--<button onclick="closeGame()">離開遊戲</button>-->
+    </div>
+  </div>
+
+  <script>
+    function failedGame() {
+      // alert("⚠️ 你點擊了錯誤的網址！請小心誤點擊釣魚網頁！");
+      // 停用按鈕並灰階化
+      //document.body.style.filter = "grayscale(100%)";
+      document.getElementById("start").disabled = true;
+      document.getElementById("start").style.opacity = "0.6";
+      document.getElementById("start").style.cursor = "not-allowed";
+      // 延遲 0.8 秒後顯示結束視窗
+      setTimeout(() => {
+        document.getElementById("overlay").style.display = "flex";
+      }, 800);
+    }
+
+    function closeGame() {
+      // 結束遊戲，導回首頁或關閉頁面
+      window.location.href = "index.html"; // 可改成其他你想導向的頁面
+    }
+  </script>
+</body>
+
+</html>
